@@ -160,7 +160,7 @@ char    *base64( const unsigned char *src, size_t sz ){
 
 int main( ){
     char        *p, *p1;
-    const char  *key = "1234567890";
+//    const char  *key = "1234567890";
     char    req[2048];
     char    message[10240];
     char    digest[BUFSIZ];
@@ -191,11 +191,11 @@ int main( ){
 	    "GET",
 	    "webservices.amazon.com",
 	    "/onca/xml" );
-    /*char  key[1024];
+    char  key[1024];
       FILE *keyobj;
       keyobj = fopen("keyobject.txt","r");
       fscanf(keyobj, "%s", key);
-     */
+    
     memset( digest, 0x00, BUFSIZ );
     memset( digest1, 0x00, BUFSIZ );
     hmac_sha256( message, strlen(message), key, strlen(key), digest );
